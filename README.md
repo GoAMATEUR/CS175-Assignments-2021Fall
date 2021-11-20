@@ -16,7 +16,7 @@ The app uses the api ```https://dict.youdao.com/jsonapi?q=word```. I've finished
 
   Every returned explanation entry is put into the template ```ItemTemplate``` and dynamically added into the view.
 
-+ **Use *WireShark* to grasp the request package. **
++ **Use WireShark to grasp the request package. **
 
   The result can be seen in [./demo/wireshark_pkgs.pcapng](demo/wireshark_pkgs.pcapng), with all the DNS, TCP and TLS packages. We can conclude that the IP address of the client is 192.168.1.101, the DNS server is 202.120.2.101, and the server is 123.123.219.79.
 
@@ -37,4 +37,3 @@ Chinese-English and English-Chinese translation, with pronunciation and addition
 
 <p align="center">
 <img src="demo/demo.gif" alt="img" style="zoom:33%;" />
-
