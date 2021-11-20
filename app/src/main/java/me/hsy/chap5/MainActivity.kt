@@ -7,6 +7,7 @@ import android.os.Looper
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
+import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.widget.Button
@@ -29,7 +30,7 @@ class MainActivity : AppCompatActivity() {
     private var synoBox: LinearLayout? = null
     private var webBox: LinearLayout? = null
     private var boundary: TextView? = null
-
+    private var pronounce: TextView? = null
 
     private var searchTask: String = ""
 
@@ -43,6 +44,7 @@ class MainActivity : AppCompatActivity() {
         webBox = findViewById<LinearLayout>(R.id.web_box)
         synoBox = findViewById<LinearLayout>(R.id.syno_box)
         boundary = findViewById<TextView>(R.id.boundary)
+        pronounce = findViewById<TextView>(R.id.pronounce)
 
         searchBox?.addTextChangedListener(object: TextWatcher{
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -61,9 +63,12 @@ class MainActivity : AppCompatActivity() {
             synoBox?.removeAllViews()
             webBox?.removeAllViews()
             boundary?.visibility = GONE
+            pronounce?.visibility = GONE
             if (searchTask != "") {
                 searchWord?.text = "搜索中..."
+
                 translate()
+//                searchBox?.setText("")
             }
             else {
                 searchWord?.text = "没输入呢"
@@ -71,6 +76,7 @@ class MainActivity : AppCompatActivity() {
 
         }
     }
+
     private val okhttpListener = object : EventListener() {
         override fun dnsStart(call: Call, domainName: String) {
             super.dnsStart(call, domainName)
@@ -87,6 +93,7 @@ class MainActivity : AppCompatActivity() {
 
         }
     }
+
     private val client: OkHttpClient = OkHttpClient
         .Builder()
         .addInterceptor(TimeConsumeInterceptor())
@@ -119,12 +126,12 @@ class MainActivity : AppCompatActivity() {
                 val youdaoBean = gson.fromJson(bodyString, YoudaoBean::class.java)
                 if (response.isSuccessful) {
                     searchWord?.text = searchTask
+                    searchBox?.setText("")
                     var outterSyno: Syno? = youdaoBean.syno
-                    // 有释义列表
+                    // 释义列表
                     if (outterSyno != null) {
                         var synosList: List<Synos> = outterSyno.synos
-
-
+                        var pro: String = youdaoBean.simple.word[0].ukphone
                         for (i in synosList.indices) {
                             val meaning = synosList[i].syno.tran
                             val pos = synosList[i].syno.pos
@@ -132,27 +139,40 @@ class MainActivity : AppCompatActivity() {
                             runOnUiThread {
                                 synoBox?.addView(temp)
                             }
-
+                            runOnUiThread {
+                                pronounce?.visibility = View.VISIBLE
+                                pronounce?.text = "/${pro}/"
+                            }
                         }
                     }
                     //网络释义
 
-                    val webList: List<Web_translation> = youdaoBean.web_trans.web_translation
-                    Log.d("@=>", "${webList.size}")
+                    var webTrans: Web_trans? = youdaoBean.web_trans
 
+                    if (webTrans != null){
+                        val webList: List<Web_translation> = webTrans.web_translation
 
-                    runOnUiThread {
-                        boundary?.visibility = VISIBLE
+                        Log.d("@=>", "${webList.size}")
+                        runOnUiThread {
+                            boundary?.visibility = VISIBLE //令分界线可见
+                        }
+                        for (i in webList.indices) {
+                            val pos = webList[i].key
+                            val meaning = webList[i].trans[0].value
+
+                            val temp = ItemTemplate(thisContext, null, pos, meaning)
+                            runOnUiThread {
+                                webBox?.addView(temp)
+                            }
+                        }
                     }
-                    for (i in webList.indices) {
-                        val pos = webList[i].key
-                        val meaning = webList[i].trans[0].value
-
-                        val temp = ItemTemplate(thisContext, null, pos, meaning)
+                    else{
+                        val temp = ItemTemplate(thisContext, null, "error", "No results found. Please check your spelling.")
                         runOnUiThread {
                             webBox?.addView(temp)
                         }
                     }
+
                 }
                 else {
                     runOnUiThread{
@@ -160,7 +180,6 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
             }
-
         })
     }
 }

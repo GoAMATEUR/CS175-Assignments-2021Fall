@@ -13,7 +13,7 @@ import java.util.List;
 public class Simple {
 
     private String query;
-    private List<Word> word;
+    private List<me.hsy.chap5.api.inner.Word> word;
     public void setQuery(String query) {
          this.query = query;
      }
@@ -21,10 +21,10 @@ public class Simple {
          return query;
      }
 
-    public void setWord(List<Word> word) {
+    public void setWord(List<me.hsy.chap5.api.inner.Word> word) {
          this.word = word;
      }
-     public List<Word> getWord() {
+     public List<me.hsy.chap5.api.inner.Word> getWord() {
          return word;
      }
 

@@ -1,4 +1,4 @@
-package me.hsy.chap5.api.innerSyno;
+package me.hsy.chap5.api.inner;
 
 
 

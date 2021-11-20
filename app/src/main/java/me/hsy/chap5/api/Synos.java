@@ -3,7 +3,7 @@
   */
 package me.hsy.chap5.api;
 
-import me.hsy.chap5.api.innerSyno.Syno;
+import me.hsy.chap5.api.inner.Syno;
 
 /**
  * Auto-generated: 2021-11-09 21:39:43
@@ -13,7 +13,7 @@ import me.hsy.chap5.api.innerSyno.Syno;
  */
 public class Synos {
 
-    private me.hsy.chap5.api.innerSyno.Syno syno;
+    private me.hsy.chap5.api.inner.Syno syno;
 
 
     public Syno getSyno() {
