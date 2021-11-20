@@ -3,12 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-
     >
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp">
+        android:paddingHorizontal="10dp">
         <LinearLayout
             android:id = "@+id/search_portion"
             android:layout_width="match_parent"
@@ -48,7 +48,14 @@
             android:text="搜索"
             android:textSize="16sp"/>
     </RelativeLayout>
-
+    <TextView
+        android:id="@+id/traffic"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:text="上行流量: 0KB, 下行流量0KB"
+        android:textSize="15sp"
+        android:maxLines="1"
+        android:gravity="center"/>
     <ScrollView
         android:id="@+id/vertical_scroll_view"
         android:layout_width="match_parent"

@@ -1,5 +1,6 @@
 package me.hsy.chap5
 
+import android.net.TrafficStats
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -22,7 +23,9 @@ import com.google.gson.GsonBuilder
 import me.hsy.chap5.api.*
 import me.hsy.chap5.interceptor.NetCacheInterceptor
 import java.io.File
+import java.lang.Math.round
 import java.util.concurrent.TimeUnit
+import kotlin.math.roundToInt
 
 class MainActivity : AppCompatActivity() {
     private var requestBtn: Button? = null
@@ -34,11 +37,15 @@ class MainActivity : AppCompatActivity() {
     private var webBox: LinearLayout? = null
     private var boundary: TextView? = null
     private var pronounce: TextView? = null
+    private var traffic: TextView? =null
 
     private var searchTask: String = "" // The word to look up
 
-    private var client : OkHttpClient? = null
-    private var cache : Cache? = null
+    private var client: OkHttpClient? = null
+    private var cache: Cache? = null
+
+    private var startByteR: Double = 0.0
+    private var startByteS: Double = 0.0
 
     private val okhttpListener = object : EventListener() {
         override fun dnsStart(call: Call, domainName: String) {
@@ -69,6 +76,7 @@ class MainActivity : AppCompatActivity() {
         synoBox = findViewById<LinearLayout>(R.id.syno_box)
         boundary = findViewById<TextView>(R.id.boundary)
         pronounce = findViewById<TextView>(R.id.pronounce)
+        traffic = findViewById<TextView>(R.id.traffic)
 
         cache = Cache(File(applicationContext.cacheDir, "request_cache"), maxSize = (50 * 1024 * 1024).toLong())
 
@@ -80,6 +88,10 @@ class MainActivity : AppCompatActivity() {
             .eventListener(okhttpListener)
             .build()
 
+        // For traffic statistics
+        var uid = applicationInfo.uid
+        startByteR = TrafficStats.getUidRxBytes(uid).toDouble()
+        startByteS = TrafficStats.getUidTxBytes(uid).toDouble()
 
         // Listen the change of text in the search box
         searchBox?.addTextChangedListener(object: TextWatcher{
@@ -107,21 +119,27 @@ class MainActivity : AppCompatActivity() {
             if (searchTask != "") {
                 searchWord?.text = "搜索中..."
                 translate()
+                var curByteR: Double = TrafficStats.getUidRxBytes(uid).toDouble()
+                var curByteS: Double = TrafficStats.getUidTxBytes(uid).toDouble()
+                var rx: Double =
+                    ((curByteR - startByteR) / 1024.0 * 10).roundToInt().toDouble() / 10.0
+                var sx: Double =
+                    ((curByteS - startByteS) / 1024.0 * 10).roundToInt().toDouble() / 10.0
+
+                Log.d("@=>", "Receive: ${rx}")
+                Log.d("@=>", "Send: ")
+                traffic?.text = "上行流量${sx}KB, 下行流量${rx}KB"
             }
             else {
-                searchWord?.text = "没输入 哼 哼 啊啊啊啊啊"
+                runOnUiThread {
+                    searchWord?.text = "没输入 哼 哼 啊啊啊啊啊"
+                }
             }
 
         }
+
+
     }
-
-
-
-//    private val client: OkHttpClient = OkHttpClient
-//        .Builder()
-//        .addInterceptor(TimeConsumeInterceptor())
-//        .eventListener(okhttpListener)
-//        .build()
 
     private val gson = GsonBuilder().create()
 
@@ -158,8 +176,10 @@ class MainActivity : AppCompatActivity() {
 
                         Log.d("@=>", "$searchTask Response from network")
                     }
-                    searchWord?.text = searchTask
-                    searchBox?.setText("")
+                    runOnUiThread{
+                        searchWord?.text = searchTask
+                        searchBox?.setText("")
+                    }
                     var outterSyno: Syno? = youdaoBean.syno
                     // 释义列表
                     if (outterSyno != null) {

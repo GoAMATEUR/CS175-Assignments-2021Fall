@@ -1,14 +1,12 @@
 # CS175 Homework 4: Network
 
-*NOT FINISHED*
-
 CS175 Homework 4 Network. A translation app.
 
 Author: HUANG Siyuan (519030910095)
 
 ## Overview
 
-The app uses the api ```https://dict.youdao.com/jsonapi?q=word```. I've finished the following tasks:
+The app uses the api ```https://dict.youdao.com/jsonapi?q=word```. I've finished all the tasks.
 
 + **Basic UI, with a input box, a button to send request and a result display panel.**
 
@@ -27,9 +25,9 @@ The app uses the api ```https://dict.youdao.com/jsonapi?q=word```. I've finished
   <p align="center">
   <img src="demo/cache.png" alt="img"/>
 
-Underway:
-
 + **Traffic statistics**
+
+  I use ```TrafficStats``` to record network traffic usage. The statistical data is shown beneath the search box.
 
 ## Demo
 
@@ -37,3 +35,4 @@ Chinese-English and English-Chinese translation, with pronunciation and addition
 
 <p align="center">
 <img src="demo/demo.gif" alt="img" style="zoom:33%;" />
+
