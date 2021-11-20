@@ -20,6 +20,9 @@ import okhttp3.EventListener
 import java.io.IOException
 import com.google.gson.GsonBuilder
 import me.hsy.chap5.api.*
+import me.hsy.chap5.interceptor.NetCacheInterceptor
+import java.io.File
+import java.util.concurrent.TimeUnit
 
 class MainActivity : AppCompatActivity() {
     private var requestBtn: Button? = null
@@ -32,50 +35,10 @@ class MainActivity : AppCompatActivity() {
     private var boundary: TextView? = null
     private var pronounce: TextView? = null
 
-    private var searchTask: String = ""
+    private var searchTask: String = "" // The word to look up
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        requestBtn = findViewById<Button>(R.id.request_btn)
-        searchBox = findViewById<EditText>(R.id.search_box)
-        searchWord = findViewById<TextView>(R.id.search_word)
-        resultBox = findViewById<LinearLayout>(R.id.result_box)
-        webBox = findViewById<LinearLayout>(R.id.web_box)
-        synoBox = findViewById<LinearLayout>(R.id.syno_box)
-        boundary = findViewById<TextView>(R.id.boundary)
-        pronounce = findViewById<TextView>(R.id.pronounce)
-
-        searchBox?.addTextChangedListener(object: TextWatcher{
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-
-            }
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-
-            }
-
-            override fun afterTextChanged(s: Editable?) {
-                searchTask = s.toString()
-            }
-        } )
-        requestBtn?.setOnClickListener {
-            synoBox?.removeAllViews()
-            webBox?.removeAllViews()
-            boundary?.visibility = GONE
-            pronounce?.visibility = GONE
-            if (searchTask != "") {
-                searchWord?.text = "搜索中..."
-
-                translate()
-//                searchBox?.setText("")
-            }
-            else {
-                searchWord?.text = "没输入呢"
-            }
-
-        }
-    }
+    private var client : OkHttpClient? = null
+    private var cache : Cache? = null
 
     private val okhttpListener = object : EventListener() {
         override fun dnsStart(call: Call, domainName: String) {
@@ -94,21 +57,82 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private val client: OkHttpClient = OkHttpClient
-        .Builder()
-        .addInterceptor(TimeConsumeInterceptor())
-        .eventListener(okhttpListener)
-        .build()
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        // Views
+        requestBtn = findViewById<Button>(R.id.request_btn)
+        searchBox = findViewById<EditText>(R.id.search_box)
+        searchWord = findViewById<TextView>(R.id.search_word)
+        resultBox = findViewById<LinearLayout>(R.id.result_box)
+        webBox = findViewById<LinearLayout>(R.id.web_box)
+        synoBox = findViewById<LinearLayout>(R.id.syno_box)
+        boundary = findViewById<TextView>(R.id.boundary)
+        pronounce = findViewById<TextView>(R.id.pronounce)
+
+        cache = Cache(File(applicationContext.cacheDir, "request_cache"), maxSize = (50 * 1024 * 1024).toLong())
+
+        client = OkHttpClient
+            .Builder()
+            .cache(cache)
+            .addInterceptor(NetCacheInterceptor())
+            .addInterceptor(TimeConsumeInterceptor())
+            .eventListener(okhttpListener)
+            .build()
+
+
+        // Listen the change of text in the search box
+        searchBox?.addTextChangedListener(object: TextWatcher{
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                searchTask = s.toString()
+            }
+        } )
+
+        // Search button
+        requestBtn?.setOnClickListener {
+            // Reset the views
+            synoBox?.removeAllViews()
+            webBox?.removeAllViews()
+            boundary?.visibility = GONE
+            pronounce?.visibility = GONE
+
+            if (searchTask != "") {
+                searchWord?.text = "搜索中..."
+                translate()
+            }
+            else {
+                searchWord?.text = "没输入 哼 哼 啊啊啊啊啊"
+            }
+
+        }
+    }
+
+
+
+//    private val client: OkHttpClient = OkHttpClient
+//        .Builder()
+//        .addInterceptor(TimeConsumeInterceptor())
+//        .eventListener(okhttpListener)
+//        .build()
 
     private val gson = GsonBuilder().create()
 
     private fun request(url: String, callback: Callback){
         val request: Request = Request.Builder()
             .url(url)
-            .header("User-Agent", "Hsy-translater")
+            .header("User-Agent", "Hsy-translator")
             .build()
-        client.newCall(request).enqueue(callback)
+        client!!.newCall(request).enqueue(callback)
     }
+
     private val handler = Handler(Looper.getMainLooper())
     private val thisContext = this
     private fun translate() {
@@ -124,7 +148,16 @@ class MainActivity : AppCompatActivity() {
             override fun onResponse(call: Call, response: Response) {
                 val bodyString = response.body?.string()
                 val youdaoBean = gson.fromJson(bodyString, YoudaoBean::class.java)
+
                 if (response.isSuccessful) {
+                    if (response.cacheResponse !=null){
+
+                        Log.d("@=>", "$searchTask Response from cache hit")
+                    }
+                    if (response.networkResponse !=null){
+
+                        Log.d("@=>", "$searchTask Response from network")
+                    }
                     searchWord?.text = searchTask
                     searchBox?.setText("")
                     var outterSyno: Syno? = youdaoBean.syno
@@ -151,8 +184,6 @@ class MainActivity : AppCompatActivity() {
 
                     if (webTrans != null){
                         val webList: List<Web_translation> = webTrans.web_translation
-
-                        Log.d("@=>", "${webList.size}")
                         runOnUiThread {
                             boundary?.visibility = VISIBLE //令分界线可见
                         }
@@ -172,7 +203,6 @@ class MainActivity : AppCompatActivity() {
                             webBox?.addView(temp)
                         }
                     }
-
                 }
                 else {
                     runOnUiThread{
