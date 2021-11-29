@@ -83,8 +83,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val id: Int = item.itemId
-        when (id) {
+        when (item.itemId) {
             R.id.action_settings -> return true
             // I abandoned this activity.
 //            R.id.action_debug -> {
@@ -155,6 +154,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateNote(note: Note?) {
+        // SWITCH THE STATE OF THE NOTE: DONE OR TODO
         if (database == null) {
             return
         }

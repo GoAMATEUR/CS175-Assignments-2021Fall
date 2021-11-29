@@ -2,6 +2,7 @@ package me.hsy.todolist.ui
 
 import android.graphics.Color
 import android.graphics.Paint
+import android.util.Log
 import android.view.View
 import android.widget.CheckBox
 import android.widget.TextView
@@ -33,14 +34,20 @@ class NoteViewHolder(itemView: View, private val operator: NoteOperator): Recycl
         deleteBtn.setOnClickListener{
             operator.deleteNote(note)
         }
+
         if (note.state === State.DONE) {
+            // STRIKE THROUGH TEXT IF DONE
             contentText.setTextColor(Color.GRAY)
             contentText.paintFlags = contentText.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+            Log.d("@=>", contentText.paintFlags.toString())
         }
         else {
             contentText.setTextColor(Color.BLACK)
             contentText.paintFlags = contentText.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+            Log.d("@=>", contentText.paintFlags.toString())
         }
+
+        // SET COLOR ACCORDING TO THE PRIORITY
         note.priority?.color?.let {
             itemView.setBackgroundColor(it)
         }
