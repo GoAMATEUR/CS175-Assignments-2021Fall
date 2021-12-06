@@ -238,7 +238,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun takePicture() {
         Log.d("@=>", "[Picture] taken")
-        mCamera!!.takePicture(null, null, Camera.PictureCallback { bytes, camera ->
+        mCamera!!.takePicture(null, null, Camera.PictureCallback { bytes, _ ->
             val pictureFile = getOutputMediaFile(MEDIA_TYPE_IMAGE) ?: return@PictureCallback
             try {
                 val fos = FileOutputStream(pictureFile)
@@ -310,6 +310,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun flipCamera(){
         releaseCamera()
+
+        //
         val cameraNumber = (currentCameraId!! + 1) % 2
         startCamera(cameraNumber)
         mCamera?.setPreviewDisplay(mSurfaceView?.holder);
@@ -360,8 +362,6 @@ class MainActivity : AppCompatActivity() {
         }
         return inSampleSize
     }
-
-
 
 
     private val mPermissionsArrays = arrayOf(
