@@ -207,7 +207,7 @@ class MainActivity : AppCompatActivity() {
         var retriever: MediaMetadataRetriever = MediaMetadataRetriever()
         try {
             retriever.setDataSource(path)
-            bitmap= retriever.getFrameAtTime()!!
+            bitmap= retriever.frameAtTime!!
         } catch (e: IllegalArgumentException) {
             // error
         } catch (e: RuntimeException) {
