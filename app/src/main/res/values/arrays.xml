@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string-array name="courses">
+
+        <item>Digital Image Process</item>
+        <item>Artificial Intelligence</item>
+        <item>Computer Networks</item>
+    </string-array>
+
+</resources>

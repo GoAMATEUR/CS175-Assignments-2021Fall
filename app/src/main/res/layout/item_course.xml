@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item_homework"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:paddingBottom="8dp"
+    android:paddingHorizontal="5dp"
+    android:paddingTop="8dp">
+
+
+    <TextView
+        android:id="@+id/course_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+
+        android:layout_marginTop="12dp"
+        android:layout_toEndOf="@id/theme_color"
+        android:textColor="@color/purple_500"
+
+        android:textSize="20sp"
+        tools:text="Computer Networks" />
+
+    <View
+        android:id="@+id/theme_color"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:background="@color/purple_500"
+        android:layout_centerVertical="true"
+        android:layout_marginHorizontal="10dp"/>
+
+    <TextView
+        android:id="@+id/text_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/course_name"
+        android:layout_toEndOf="@id/theme_color"
+        android:textColor="#1e1e1e"
+        android:textSize="12sp"
+        tools:text="Haimin Jin, 105 Dongshang" />
+
+    <TextView
+        android:id="@+id/term"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/course_name"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="100dp"
+        android:textColor="#1e1e1e"
+        android:textSize="13sp"
+        tools:text="2021-2022 Fall" />
+
+
+</RelativeLayout>

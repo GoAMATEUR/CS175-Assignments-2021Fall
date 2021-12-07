@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">My Canvas</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Huang Siyuan</string>
+    <string name="nav_header_subtitle">goamateur@sjtu.edu.cn</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Dashboard</string>
+    <string name="menu_gallery">Curriculums</string>
+    <string name="menu_slideshow">Timetable</string>
+
+    <!--event types on the timeline-->
+    <string name="event_homework">Homework</string>
+    <string name="event_todo">Todo</string>
+    <string name="event_notification">Notification</string>
+    <string name="title_activity_course_page">CoursePage</string>
+    <string name="tab_text_1">Assignments</string>
+    <string name="tab_text_2">examination</string>
+    <string name="tab_text_3">Information</string>
+</resources>

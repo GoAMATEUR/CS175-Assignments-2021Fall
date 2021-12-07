@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item_todo"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="8dp"
+    android:paddingHorizontal="5dp"
+    android:paddingTop="8dp">
+
+    <View
+        android:id="@+id/theme_line"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@color/purple_200"
+        />
+    <TextView
+        android:id="@+id/course_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/checkbox"
+
+
+        android:layout_below="@id/theme_line"
+        android:layout_marginTop="4dp"
+        android:textColor="@color/purple_200"
+        android:textSize="14sp"
+        tools:text="Computer Networks" />
+
+    <CheckBox
+        android:id="@+id/checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/theme_line"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:id="@+id/text_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/course_name"
+        android:layout_toStartOf="@id/submit_status"
+        android:layout_toEndOf="@id/checkbox"
+        android:textColor="#1e1e1e"
+        android:textSize="18sp"
+        tools:text="Homework Test" />
+
+    <TextView
+        android:id="@+id/text_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/text_content"
+        android:layout_below="@id/text_content"
+        android:layout_marginVertical="2dp"
+        android:textColor="#808080"
+        android:textSize="14sp"
+        tools:text="2019-01-29" />
+
+    <TextView
+        android:id="@+id/submit_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/course_name"
+        android:paddingHorizontal="3dp"
+        android:layout_toStartOf="@id/btn_delete"
+        android:textColor="#808080"
+        android:background="@drawable/bg_edit"
+        android:textSize="16sp"
+        tools:text="MISSING" />
+
+
+
+    <ImageButton
+        android:id="@+id/btn_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:background="@null"
+        android:padding="8dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_close_gray_24dp"
+        android:layout_marginTop="15dp"/>
+
+    <TextView
+        android:id="@+id/text_pts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/submit_status"
+        android:layout_alignEnd="@id/submit_status"
+        android:layout_marginVertical="2dp"
+        android:textColor="#808080"
+        android:textSize="14sp"
+        tools:text="0pts/100pts"
+        android:textStyle="bold"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/text_date"
+        android:background="#D3D3D3" />
+</RelativeLayout>
