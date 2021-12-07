@@ -37,7 +37,7 @@ class PlaceholderFragment : Fragment() {
 
         _binding = FragmentCoursePageBinding.inflate(inflater, container, false)
         val root = binding.root
-
+//
 //        val textView: TextView = binding.sectionLabel
 //        pageViewModel.text.observe(viewLifecycleOwner, Observer {
 //            textView.text = it

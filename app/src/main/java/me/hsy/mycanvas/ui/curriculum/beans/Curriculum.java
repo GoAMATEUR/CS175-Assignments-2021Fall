@@ -4,13 +4,15 @@
 package me.hsy.mycanvas.ui.curriculum.beans;
 
 
-public class CurrentCurriculum {
+public class Curriculum {
 
     private String name;
     private int intValue;
+    private String theme;
     private String id;
     private String term;
     private String info;
+    private int credit;
     public void setName(String name) {
          this.name = name;
      }
@@ -24,6 +26,13 @@ public class CurrentCurriculum {
      public int getIntValue() {
          return intValue;
      }
+
+    public void setTheme(String theme) {
+        this.theme = theme;
+    }
+    public String getTheme() {
+        return theme;
+    }
 
     public void setId(String id) {
          this.id = id;
@@ -46,4 +55,10 @@ public class CurrentCurriculum {
          return info;
      }
 
+    public void setCredit(int credit) {
+        this.credit = credit;
+    }
+    public int getCredit() {
+        return credit;
+    }
 }

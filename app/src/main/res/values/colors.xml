@@ -9,8 +9,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="light_gray">#808080</color>
 
-    <color name="dip_color">#86226F92</color>
-    <color name="ai_color">#614585</color>
-    <color name="nw_color">#367C68</color>
-    <color name="todo_color">#751616</color>
+    <color name="dip_color">#038995</color>
+    <color name="ai_color">#0DC341</color>
+    <color name="nw_color">#FF6200EE</color>
+    <color name="todo_color">#A30B0B</color>
 </resources>

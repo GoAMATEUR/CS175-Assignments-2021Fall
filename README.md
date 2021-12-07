@@ -1,2 +1,5 @@
 # CS175_Final_Project
-CS175 Final Project via Group 5
+CS175 Final Project
+
+Author: Siyuan HUANG (519030910095)
+

@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingBottom="8dp"
+    android:paddingVertical="8dp"
     android:paddingHorizontal="5dp"
-    android:paddingTop="8dp">
+    >
 
     <View
         android:id="@+id/theme_bar"
@@ -15,15 +15,16 @@
         android:background="@color/purple_500"
 
     />
+
     <TextView
         android:id="@+id/course_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/checkbox"
-
-        android:textColor="@color/purple_500"
         android:layout_below="@id/theme_line"
-        android:layout_marginTop="4dp"
+
+        android:layout_marginTop="5dp"
+        android:layout_toEndOf="@id/checkbox"
+        android:textColor="@color/purple_500"
 
         android:textSize="14sp"
         tools:text="Computer Networks" />
@@ -33,7 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/theme_line"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="16dp"
         tools:ignore="NotSibling" />
 
     <TextView
@@ -41,21 +42,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/course_name"
-    android:layout_toStartOf="@id/submit_status"
+        android:layout_marginTop="3dp"
+        android:layout_toStartOf="@id/submit_status"
         android:layout_toEndOf="@id/checkbox"
         android:textColor="#1e1e1e"
-        android:textSize="18sp"
+        android:textSize="20.5sp"
         tools:text="Homework Test" />
 
     <TextView
         android:id="@+id/text_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@id/text_content"
         android:layout_below="@id/text_content"
-        android:layout_marginVertical="2dp"
+        android:layout_alignStart="@id/text_content"
+        android:layout_marginVertical="5dp"
+
         android:textColor="#808080"
-        android:textSize="14sp"
+        android:textSize="15sp"
         tools:text="2019-01-29" />
 
     <TextView
@@ -63,13 +66,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/course_name"
-        android:paddingHorizontal="3dp"
+        android:layout_marginTop="6dp"
         android:layout_toStartOf="@id/btn_delete"
-        android:textColor="#808080"
         android:background="@drawable/bg_edit"
+        android:paddingHorizontal="3dp"
+        android:textColor="#808080"
         android:textSize="16sp"
         tools:text="MISSING" />
-
 
 
     <ImageButton
@@ -77,26 +80,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
+        android:layout_marginTop="18dp"
         android:background="@null"
         android:padding="8dp"
         android:scaleType="centerInside"
-        android:src="@drawable/ic_close_gray_24dp"
-        android:layout_marginTop="15dp"/>
+        android:src="@drawable/ic_close_gray_24dp" />
 
     <TextView
         android:id="@+id/text_pts"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/submit_status"
+
         android:layout_alignEnd="@id/submit_status"
-        android:layout_marginVertical="2dp"
+        android:layout_alignTop="@id/text_date"
+
         android:textColor="#808080"
-        android:textSize="14sp"
+        android:textSize="15sp"
+        android:textStyle="bold"
         tools:text="0pts/100pts" />
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_below="@id/text_date"
-        android:background="#D3D3D3"
-        />
+        android:layout_marginTop="3dp"
+        android:background="#D3D3D3" />
 </RelativeLayout>

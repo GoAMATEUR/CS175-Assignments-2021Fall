@@ -3,32 +3,41 @@
     android:id="@+id/item_homework"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="80dp"
+    android:layout_height="88dp"
     android:paddingBottom="8dp"
     android:paddingHorizontal="5dp"
     android:paddingTop="8dp">
 
-
     <TextView
-        android:id="@+id/course_name"
+        android:id="@+id/id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
+        android:layout_alignStart="@id/course_name"
+        android:text="EE357"
+        android:textStyle="bold" />
 
-        android:layout_marginTop="12dp"
+    <TextView
+        android:id="@+id/course_name"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+
+
+        android:layout_marginTop="17dp"
         android:layout_toEndOf="@id/theme_color"
         android:textColor="@color/purple_500"
 
         android:textSize="20sp"
-        tools:text="Computer Networks" />
+        tools:text="Computer Networking" />
 
     <View
         android:id="@+id/theme_color"
         android:layout_width="12dp"
         android:layout_height="12dp"
-        android:background="@color/purple_500"
-        android:layout_centerVertical="true"
-        android:layout_marginHorizontal="10dp"/>
+        android:layout_alignTop="@id/course_name"
+        android:layout_marginTop="8dp"
+        android:layout_marginHorizontal="10dp"
+        android:background="@color/purple_500" />
 
     <TextView
         android:id="@+id/text_content"
@@ -38,6 +47,7 @@
         android:layout_toEndOf="@id/theme_color"
         android:textColor="#1e1e1e"
         android:textSize="12sp"
+        android:layout_marginTop="3dp"
         tools:text="Haimin Jin, 105 Dongshang" />
 
     <TextView
@@ -45,12 +55,19 @@
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/course_name"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="100dp"
+        android:layout_marginLeft="0dp"
+        android:layout_toRightOf="@+id/course_name"
         android:textColor="#1e1e1e"
         android:textSize="13sp"
-        tools:text="2021-2022 Fall" />
+        tools:text="2021-2022 Spring" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@id/text_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/light_gray" />
 
 
 </RelativeLayout>

@@ -2,42 +2,54 @@
   "CurrentCurriculum": [
     { "name": "Computer Networks",
       "intValue": 2,
+      "theme": "#FF6200EE",
       "id": "EE357",
       "term": "2021-2022 Fall",
-      "info": "Haimin Jin, 105 Dongshang"
+      "info": "Haimin Jin, 105 Dongshang",
+      "credit": 4
     },
     { "name": "Artificial Intelligence",
       "intValue": 1,
+      "theme": "#FF018786",
       "id": "AI3601",
       "term": "2021-2022 Fall",
-      "info": "Yue Gao, 311 Dongshang"
+      "info": "Yue Gao, 311 Dongshang",
+      "credit": 4
     },
     { "name": "Digital Image Process",
       "intValue": 0,
+      "theme": "#86226F92",
       "id": "EE356",
       "term": "2021-2022 Fall",
-      "info": "Lishen Wang, 302 Dongshang"
+      "info": "Lishen Wang, 302 Dongshang",
+      "credit": 3
     }
 
   ],
   "PastCurriculum": [
     { "name": "Computer Architecture",
       "intValue": 0,
+      "theme": "#A30B0B",
       "id": "EI332",
       "term": "2020-2021 Spring",
-      "info": "Xiangzhong Fang, 105 Dongshang"
+      "info": "Xiangzhong Fang, 105 Dongshang",
+      "credit": 4
     },
     { "name": "Control Theory",
       "intValue": 0,
+      "theme": "#FF018786",
       "id": "AU2651",
       "term": "2020-2021 Spring",
-      "info": "Jianping He, 311 Dongshang"
+      "info": "Jianping He, 311 Dongshang",
+      "credit": 4
     },
     { "name": "Information Theory",
       "intValue": 0,
+      "theme": "#FF6200EE",
       "id": "CS258",
       "term": "2020-2021 Spring",
-      "info": "Fan Chen, 302 Dongshang"
+      "info": "Fan Chen, 302 Dongshang",
+      "credit": 2
     }
   ]
 }

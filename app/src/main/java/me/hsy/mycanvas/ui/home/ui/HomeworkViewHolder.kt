@@ -68,28 +68,28 @@ class HomeworkViewHolder(itemView: View, private val operator: NoteOperator): Re
 
         when (note.course!!.intValue) {
             Course.NETWORK.intValue -> {
-                setThemeColor("#367C68")
+                setThemeColor("#FF6200EE")
                 courseName.text = Course.NETWORK.courseName
                 ptsText.text = "100pts"
                 ptsText.visibility = VISIBLE
                 submitStatus.visibility= VISIBLE
             }
             Course.AI.intValue -> {
-                setThemeColor("#614585")
+                setThemeColor("#0DC341")
                 courseName.text = Course.AI.courseName
                 ptsText.text = "100pts"
                 ptsText.visibility = VISIBLE
                 submitStatus.visibility= VISIBLE
             }
             Course.DIP.intValue -> {
-                setThemeColor("#86226F92")
+                setThemeColor("#038995")
                 courseName.text = Course.DIP.courseName
                 ptsText.text = "100pts"
                 ptsText.visibility = VISIBLE
                 submitStatus.visibility= VISIBLE
             }
             else -> {
-                setThemeColor("#751616")
+                setThemeColor("#A30B0B")
                 courseName.text = Course.CUSTOM.courseName
                 submitStatus.visibility=INVISIBLE
                 ptsText.visibility = INVISIBLE

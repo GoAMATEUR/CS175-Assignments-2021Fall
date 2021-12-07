@@ -7,19 +7,19 @@ import java.util.List;
 
 public class CurriculumJson {
 
-    private List<CurrentCurriculum> CurrentCurriculum;
-    private List<PastCurriculum> PastCurriculum;
-    public void setCurrentCurriculum(List<CurrentCurriculum> CurrentCurriculum) {
+    private List<Curriculum> CurrentCurriculum;
+    private List<Curriculum> PastCurriculum;
+    public void setCurrentCurriculum(List<Curriculum> CurrentCurriculum) {
          this.CurrentCurriculum = CurrentCurriculum;
      }
-     public List<CurrentCurriculum> getCurrentCurriculum() {
+     public List<Curriculum> getCurrentCurriculum() {
          return CurrentCurriculum;
      }
 
-    public void setPastCurriculum(List<PastCurriculum> PastCurriculum) {
+    public void setPastCurriculum(List<Curriculum> PastCurriculum) {
          this.PastCurriculum = PastCurriculum;
      }
-     public List<PastCurriculum> getPastCurriculum() {
+     public List<Curriculum> getPastCurriculum() {
          return PastCurriculum;
      }
 
