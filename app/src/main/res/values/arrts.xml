@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="PieChart">
+        <attr name="outer_radius" format="integer" />
+
+        <attr name="percentage_length" format="integer" />
+
+        <attr name="percentage_width" format="integer" />
+
+        <attr name="percentage_size" format="integer" />
+    </declare-styleable>
+
+</resources>

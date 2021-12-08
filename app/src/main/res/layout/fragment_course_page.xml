@@ -8,24 +8,6 @@
     tools:context=".ui.main.PlaceholderFragment"
     android:orientation="vertical">
 
-    <ScrollView
-        android:id="@+id/scroll_view"
 
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        >
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="All courses"
-            android:textSize="30sp"
-            android:textColor="@color/purple_500"/>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="10dp"
-            android:background="@color/black"
-            />
-    </ScrollView>
 
 </LinearLayout>

@@ -3,7 +3,6 @@ package me.hsy.mycanvas.ui.curriculum
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
-import android.system.Os.open
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -12,7 +11,6 @@ import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.gson.GsonBuilder
 import me.hsy.mycanvas.CoursePage
@@ -84,6 +82,8 @@ class CurriculumFragment : Fragment() {
                 val intent = Intent(context, CoursePage::class.java)
                 intent.putExtra("course_name", name)
                 intent.putExtra("theme", theme)
+                Log.d("@=>", "$name, $theme")
+
                 startActivity(intent)
             }
             currentCourseList?.addView(newItem)

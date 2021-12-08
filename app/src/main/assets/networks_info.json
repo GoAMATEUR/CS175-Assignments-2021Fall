@@ -1,0 +1,30 @@
+{
+  "name": "Computer Networks",
+  "lecturer": "Haimin Jin",
+  "location": "105 Dongshang",
+  "credit": 3,
+  "grading": [
+    {
+      "item": "Hw & quiz",
+      "account": 40
+    },
+    {
+      "item": "Lab",
+      "account": 30
+    },
+    {
+      "item": "Final",
+      "account": 30
+    }
+  ],
+  "description": "This course will introduce students to the key concepts underlying wired and wireless networking with a focus on the discussion of the layered architecture of the network protocol. A variety of case studies will be drawn from the Internet, combined with several practical programming exercises. At the end of the semester, students are expected to understand, several concepts, including the Internet architecture, HTTP, DNS, P2P, Sockets, TCP/IP, BGP, Routing protocols, wireless and sensor networking, WiFi, cellular and satellite networks, security, etc., with the ability to analyze and design protocols and algorithms in networking systems.",
+  "time": [{
+    "day": 1,
+    "order": 1
+  },
+    {
+      "day": 4,
+      "order": 2
+    }
+  ]
+}

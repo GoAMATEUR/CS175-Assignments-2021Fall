@@ -33,7 +33,7 @@
 
                     android:layout_marginBottom="2dp"
                     android:text="   All Courses"
-                    android:textColor="@color/black"
+                    android:textColor="#C3000000"
                     android:textSize="25sp" />
 
                 <TextView
@@ -78,9 +78,9 @@
                     android:layout_height="wrap_content"
 
 
-                    android:text="    Past Enrollments"
                     android:layout_marginBottom="3dp"
-                    android:textColor="@color/black"
+                    android:text="    Past Enrollments"
+                    android:textColor="#A9000000"
                     android:textSize="20sp" />
 
                 <TextView

@@ -14,24 +14,28 @@
         <entry key="..\:/Study/Android/lec7/MyCanvas/app/src/main/res/drawable/ic_menu_home.xml" value="0.22" />
         <entry key="..\:/Study/Android/lec7/MyCanvas/app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.37864583333333335" />
         <entry key="..\:/Study/Android/lec7/MyCanvas/app/src/main/res/drawable/side_nav_bar.xml" value="0.37864583333333335" />
+        <entry key="..\:/Study/Android/lec7/MyCanvas/app/src/main/res/layout/activity_chart.xml" value="0.1757852077001013" />
         <entry key="..\:/Study/Android/lec7/MyCanvas/app/src/main/res/layout/activity_course_page.xml" value="0.27708333333333335" />
         <entry key="..\:/Study/Android/lec7/MyCanvas/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Study/Android/lec7/MyCanvas/app/src/main/res/layout/activity_note.xml" value="0.33" />
         <entry key="..\:/Study/Android/lec7/MyCanvas/app/src/main/res/layout/app_bar_main.xml" value="0.3625" />
         <entry key="..\:/Study/Android/lec7/MyCanvas/app/src/main/res/layout/content_main.xml" value="0.25" />
         <entry key="..\:/Study/Android/lec7/MyCanvas/app/src/main/res/layout/curriculum_box.xml" value="0.20364583333333333" />
+        <entry key="..\:/Study/Android/lec7/MyCanvas/app/src/main/res/layout/fragment_assignment.xml" value="0.25" />
         <entry key="..\:/Study/Android/lec7/MyCanvas/app/src/main/res/layout/fragment_course_page.xml" value="0.22" />
         <entry key="..\:/Study/Android/lec7/MyCanvas/app/src/main/res/layout/fragment_curriculum.xml" value="0.33" />
         <entry key="..\:/Study/Android/lec7/MyCanvas/app/src/main/res/layout/fragment_gallery.xml" value="0.3625" />
         <entry key="..\:/Study/Android/lec7/MyCanvas/app/src/main/res/layout/fragment_home.xml" value="0.22" />
+        <entry key="..\:/Study/Android/lec7/MyCanvas/app/src/main/res/layout/fragment_information.xml" value="0.33" />
         <entry key="..\:/Study/Android/lec7/MyCanvas/app/src/main/res/layout/fragment_slideshow.xml" value="0.3625" />
         <entry key="..\:/Study/Android/lec7/MyCanvas/app/src/main/res/layout/item_course.xml" value="0.3625" />
         <entry key="..\:/Study/Android/lec7/MyCanvas/app/src/main/res/layout/item_homework.xml" value="0.33" />
         <entry key="..\:/Study/Android/lec7/MyCanvas/app/src/main/res/layout/item_note.xml" value="0.33" />
         <entry key="..\:/Study/Android/lec7/MyCanvas/app/src/main/res/layout/item_notification.xml" value="0.1" />
+        <entry key="..\:/Study/Android/lec7/MyCanvas/app/src/main/res/layout/item_timetable.xml" value="0.29791666666666666" />
         <entry key="..\:/Study/Android/lec7/MyCanvas/app/src/main/res/layout/item_todo.xml" value="0.25" />
         <entry key="..\:/Study/Android/lec7/MyCanvas/app/src/main/res/layout/nav_header_main.xml" value="0.3625" />
-        <entry key="..\:/Study/Android/lec7/MyCanvas/app/src/main/res/menu/activity_main_drawer.xml" value="0.20364583333333333" />
+        <entry key="..\:/Study/Android/lec7/MyCanvas/app/src/main/res/menu/activity_main_drawer.xml" value="0.5" />
         <entry key="..\:/Study/Android/lec7/MyCanvas/app/src/main/res/menu/main.xml" value="0.20364583333333333" />
       </map>
     </option>

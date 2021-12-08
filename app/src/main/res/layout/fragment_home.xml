@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:paddingHorizontal="3dp"
-    android:background="">
+    android:background="@drawable/bg_timeline">
 
 
 
@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="20dp"/>
-
+S
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_todo_btn"
         android:layout_width="wrap_content"

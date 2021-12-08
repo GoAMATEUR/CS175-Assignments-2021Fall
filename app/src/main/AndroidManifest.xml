@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="me.hsy.mycanvas">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,10 +12,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyCanvas">
         <activity
+            android:name=".ChartActivity"
+            android:exported="true" >
+        </activity>
+        <activity
             android:name=".CoursePage"
             android:exported="true"
             android:label="@string/title_activity_course_page"
-            android:theme="@style/Theme.MyCanvas.NoActionBar" >
+            android:theme="@style/Theme.MyCanvas.NoActionBar">
 
         </activity>
         <activity
@@ -28,7 +34,6 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-
             </intent-filter>
         </activity>
     </application>
