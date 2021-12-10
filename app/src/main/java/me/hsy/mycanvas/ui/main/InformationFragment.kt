@@ -1,10 +1,14 @@
 package me.hsy.mycanvas.ui.main
 
+import android.content.Intent
+import android.graphics.Color
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -13,9 +17,11 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import me.hsy.mycanvas.R
 import me.hsy.mycanvas.databinding.FragmentInformationBinding
+import me.hsy.mycanvas.databinding.WeekBarBinding
 import me.hsy.mycanvas.ui.curriculum.beans.CurriculumJson
 import me.hsy.mycanvas.ui.main.beans.Grading
 import me.hsy.mycanvas.ui.main.beans.InfoBean
+import me.hsy.mycanvas.ui.main.beans.Time
 import me.hsy.mycanvas.ui.main.pie.PieBean
 import me.hsy.mycanvas.ui.main.pie.PieChart
 import java.io.InputStream
@@ -34,6 +40,8 @@ class InformationFragment : Fragment() {
     private val gson = GsonBuilder().create()
     private var pieChart: PieChart? = null
     private var itemList: MutableList<PieBean>? = null
+    private var weekBar: WeekBarBinding? = null
+    private var locationBtn: Button? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -72,6 +80,43 @@ class InformationFragment : Fragment() {
         }
         pieChart?.setData(itemList!!)
         pieChart?.startAnimation(2000)
+
+
+
+        // TODO: map widget
+        locationBtn = _binding!!.location
+        locationBtn!!.setOnClickListener{
+            val intent = Intent()
+            intent.action = Intent.ACTION_VIEW
+            intent.data = Uri.parse("geo:27.00025,116.2365214?q=花果山")
+
+            startActivity(intent)
+        }
+
+        // lecture time
+        // week
+        weekBar = _binding!!.weekBar
+        val lTime: List<Time> = infoBean.time
+        for (i in lTime.indices) {
+            when (lTime[i].day) {
+                1 -> {
+                    weekBar?.day1!!.setBackgroundColor(Color.parseColor("#FF3700B3"))
+                }
+                2 -> {
+                    weekBar?.day2!!.setBackgroundColor(Color.parseColor("#FF3700B3"))
+                }
+                3 -> {
+                    weekBar?.day3!!.setBackgroundColor(Color.parseColor("#FF3700B3"))
+                }
+                4 -> {
+                    weekBar?.day4!!.setBackgroundColor(Color.parseColor("#FF3700B3"))
+                }
+                5 -> {
+                    weekBar?.day5!!.setBackgroundColor(Color.parseColor("#FF3700B3"))
+                }
+            }
+        }
+
         return root
     }
 
@@ -99,5 +144,6 @@ class InformationFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+        // TODO: Map recycle
     }
 }

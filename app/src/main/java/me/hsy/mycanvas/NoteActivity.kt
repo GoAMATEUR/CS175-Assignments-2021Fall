@@ -3,20 +3,25 @@ package me.hsy.mycanvas
 import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
+import androidx.annotation.RequiresApi
 import androidx.appcompat.widget.AppCompatRadioButton
 import me.hsy.mycanvas.ui.home.beans.Classification
 import me.hsy.mycanvas.ui.home.beans.Course
 import me.hsy.mycanvas.ui.home.beans.State
 import me.hsy.mycanvas.ui.home.db.TodoContract
 import me.hsy.mycanvas.ui.home.db.TodoDbHelper
+import me.hsy.mycanvas.util.TimeParser
+import java.util.*
 
 class NoteActivity : AppCompatActivity() {
 
@@ -28,13 +33,15 @@ class NoteActivity : AppCompatActivity() {
     private var database: SQLiteDatabase? = null
     private var courseSpinner: Spinner? = null
     private var courseList: List<String> = arrayListOf("Digital Image Process","Artificial Intelligence", "Computer Networks")
-
+    private var datePicker: DatePicker? = null
+    private var timePicker: TimePicker? = null
     private var selectedId: Int = 0
 
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_note)
-        title = "Create a new event."
+        title = "New Event"
 
         dbHelper = TodoDbHelper(this)
         database = dbHelper!!.writableDatabase
@@ -81,10 +88,31 @@ class NoteActivity : AppCompatActivity() {
             }
         }
 
+        // DatePicker
+
+        datePicker = findViewById(R.id.date_picker)
+        timePicker = findViewById(R.id.time_picker)
+        timePicker!!.setIs24HourView(true)
+
+
+
 
         addBtn = findViewById(R.id.btn_add)
         addBtn?.setOnClickListener {
             val content: CharSequence = this.editText?.text.toString()
+            // MillTodate(System.currentTimeMillis())
+            //compute time
+            val year = datePicker!!.year
+            val month = datePicker!!.month + 1
+            val date = datePicker!!.dayOfMonth
+
+            val hour = timePicker!!.hour
+            val minute = timePicker!!.minute
+            Log.d("@=>","$year-$month-$date $hour:$minute")
+            val time: Long = TimeParser.dateToMill("$year-$month-$date $hour:$minute")
+
+
+            //Log.d("@=>", "$year/$month/$date")
 
             if (TextUtils.isEmpty(content)) {
                 Toast.makeText(
@@ -102,6 +130,7 @@ class NoteActivity : AppCompatActivity() {
 
             val succeed: Boolean = saveNote2Database(
                 content.toString().trim { it <= ' ' },
+                time,
                 getSelectedType(),
                 courseId
             )
@@ -123,14 +152,14 @@ class NoteActivity : AppCompatActivity() {
         }
     }
 
-    private fun saveNote2Database(content: String, classification: Classification, intCourse: Int): Boolean {
+    private fun saveNote2Database(content: String, time: Long, classification: Classification, intCourse: Int): Boolean {
         if (database == null || TextUtils.isEmpty(content)) {
             return false
         }
         val values = ContentValues()
         values.put(TodoContract.TodoNote.COLUMN_CONTENT, content)
         values.put(TodoContract.TodoNote.COLUMN_STATE, State.TODO.intValue)
-        values.put(TodoContract.TodoNote.COLUMN_DATE, System.currentTimeMillis())
+        values.put(TodoContract.TodoNote.COLUMN_DATE, time)
         values.put(TodoContract.TodoNote.COLUMN_CLASSIFICATION, classification.intValue)
         values.put(TodoContract.TodoNote.COLUMN_COURSE, intCourse)
         // save to TABLE_NAME
@@ -162,4 +191,8 @@ class NoteActivity : AppCompatActivity() {
             }
         }
     }
+
+
+
+
 }

@@ -10,18 +10,44 @@
     <EditText
         android:id="@+id/edit_text"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:background="@drawable/bg_edit"
+        android:layout_height="198dp"
+        android:background="@drawable/bg_round_rect"
         android:gravity="start|top"
+        android:hint="Input content."
         android:padding="4dp"
-        android:textColor="#1e1e1e"
-        android:hint="Input content."/>
+        android:textColor="#1e1e1e" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <DatePicker
+            android:id="@+id/date_picker"
+            android:layout_width="227dp"
+            android:layout_height="134dp"
+
+            android:calendarViewShown="false"
+            android:datePickerMode="spinner"
+            android:yearListItemTextAppearance="@color/purple_500" />
+
+        <TimePicker
+            android:id="@+id/time_picker"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+
+            android:timePickerMode="spinner"
+
+            />
+
+    </LinearLayout>
+
+
 
     <RadioGroup
         android:id="@+id/radio_group"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp">
+        >
 
         <androidx.appcompat.widget.AppCompatRadioButton
             android:id="@+id/btn_todo"

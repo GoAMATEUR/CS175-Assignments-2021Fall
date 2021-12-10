@@ -2,19 +2,15 @@ package me.hsy.mycanvas.ui.home.ui
 
 import android.graphics.Color
 import android.graphics.Paint
-import android.os.Build
 import android.util.Log
 import android.view.View
 import android.view.View.INVISIBLE
 import android.view.View.VISIBLE
 import android.widget.CheckBox
 import android.widget.TextView
-import androidx.annotation.RequiresApi
-import androidx.core.content.ContentProviderCompat.requireContext
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import me.hsy.mycanvas.MainActivity
 import me.hsy.mycanvas.R
+import me.hsy.mycanvas.util.TimeParser
 import me.hsy.mycanvas.ui.home.beans.Note
 import me.hsy.mycanvas.ui.home.beans.State
 import me.hsy.mycanvas.ui.home.NoteOperator
@@ -40,12 +36,13 @@ class HomeworkViewHolder(itemView: View, private val operator: NoteOperator): Re
 
     fun bind(note: Note) {
         contentText.text = note.content // set content
-        dateText.text = SIMPLE_DATE_FORMAT.format(note.date)
+        dateText.text = TimeParser.millTodate(note.date!!)
 
         checkBox.setOnCheckedChangeListener(null)
         checkBox.isChecked = (note.state == State.DONE)
+
         checkBox.setOnCheckedChangeListener { _, isChecked ->
-            note.state=(if (isChecked) State.DONE else State.TODO)
+            note.state = if (isChecked) State.DONE else State.TODO
             operator.updateNote(note)
         }
 
@@ -103,7 +100,4 @@ class HomeworkViewHolder(itemView: View, private val operator: NoteOperator): Re
         themeBar.setBackgroundColor(Color.parseColor(color))
     }
 
-    companion object{
-        private val SIMPLE_DATE_FORMAT: SimpleDateFormat = SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss", Locale.ENGLISH)
-    }
 }

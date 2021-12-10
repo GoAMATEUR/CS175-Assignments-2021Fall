@@ -6,11 +6,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.main.AssignmentFragment"
-    android:orientation="vertical">
-    <TextView
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:text="Todo"/>
+    android:orientation="vertical"
+    android:padding="3dp">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list_assignment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:background="@drawable/bg_edit"/>
 
 
 </LinearLayout>

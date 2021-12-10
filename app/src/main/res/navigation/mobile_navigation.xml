@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/nav_slideshow"
-        android:name="me.hsy.mycanvas.ui.slideshow.TimetableFragment"
+        android:name="me.hsy.mycanvas.ui.timetable.TimetableFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_timetable" />
 </navigation>

@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:paddingVertical="8dp"
     android:paddingHorizontal="5dp"
-    >
+    android:background="#B5FFFFFF">
 
     <View
         android:id="@+id/theme_bar"

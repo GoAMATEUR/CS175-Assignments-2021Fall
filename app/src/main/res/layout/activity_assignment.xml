@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.main.AssignmentActivity"
+    android:orientation="vertical"
+    android:padding="3dp">
+    <TextView
+        android:id="@+id/assignment_title"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:text="Homework test"
+        android:textStyle="bold"
+        android:layout_marginVertical="10dp"
+        android:layout_marginHorizontal="5dp"
+        android:textColor="#CB000000"
+        android:textSize="33sp"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1.8dp"
+        android:background="#B3B3B3"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:paddingHorizontal="3dp"
+
+        >
+        <LinearLayout
+            android:layout_width="170dp"
+            android:layout_height="match_parent"
+
+            android:layout_gravity="center"
+            >
+            <TextView
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="DUE"
+                android:textStyle="bold"
+                android:textSize="17sp"/>
+            <TextView
+                android:id="@+id/due_time"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:textSize="16sp"
+                android:text="2021-08-21 23:00" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="90dp"
+            android:layout_height="match_parent"
+
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_gravity="center"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="POINT"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/point"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="100"
+                android:textSize="16sp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SUBMIT"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/submit"
+                android:layout_marginLeft="5dp"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:text="A pdf file" />
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1.8dp"
+        android:background="#B3B3B3"/>
+
+    <TextView
+        android:id="@+id/assignment_description"
+        android:layout_width="match_parent"
+        android:layout_height="445dp"
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginTop="15dp"
+        android:text="No Content"
+        android:textSize="17sp" />
+
+    <RelativeLayout
+
+        android:id="@+id/file_box"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="5dp"
+        android:layout_height="80dp"
+        android:background="@drawable/bg_round_rect"
+        android:visibility="invisible"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/file_icon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+
+            android:src="@drawable/ic_file" />
+
+        <TextView
+            android:id="@+id/file_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/file_icon"
+            android:text="hw_report.pdf"
+            android:textColor="#BA000000"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/file_path"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_below="@id/file_name"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/file_icon"
+            android:text="path/path/hw_report.pdf" />
+    </RelativeLayout>
+    <Button
+        android:id="@+id/btn_submit"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="5dp"
+        android:text="Submit Assignment"
+        />
+
+
+
+</LinearLayout>

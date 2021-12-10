@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.RecyclerView
 import me.hsy.mycanvas.R
 import me.hsy.mycanvas.databinding.FragmentAssignmentBinding
 
@@ -22,6 +23,7 @@ class AssignmentFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+    private var recyclerView: RecyclerView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,25 +39,15 @@ class AssignmentFragment : Fragment() {
 
         _binding = FragmentAssignmentBinding.inflate(inflater, container, false)
         val root = binding.root
-//
-//        val textView: TextView = binding.sectionLabel
-//        pageViewModel.text.observe(viewLifecycleOwner, Observer {
-//            textView.text = it
-//        })
+
+        recyclerView  = _binding?. listAssignment
+
         return root
     }
 
     companion object {
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
         private const val ARG_SECTION_NUMBER = "section_number"
 
-        /**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         */
         @JvmStatic
         fun newInstance(sectionNumber: Int): AssignmentFragment {
             return AssignmentFragment().apply {

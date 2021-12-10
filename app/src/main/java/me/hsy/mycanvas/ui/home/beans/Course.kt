@@ -8,8 +8,8 @@ import me.hsy.mycanvas.R
 
 enum class Course(val intValue: Int, val color: Int, val courseName: String) {
     NETWORK(2,R.color.nw_color, "Computer Networks"),
-    AI(1, R.color.ai_color.toInt(), "Artificial Intelligence"),
-    DIP(0, R.color.dip_color.toInt(), "Digital Image Process"),
+    AI(1, R.color.ai_color, "Artificial Intelligence"),
+    DIP(0, R.color.dip_color, "Digital Image Process"),
     CUSTOM(3, Color.RED, "TODO");
 
     companion object {

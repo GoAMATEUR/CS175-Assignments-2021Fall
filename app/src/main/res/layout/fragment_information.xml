@@ -9,7 +9,7 @@
     android:orientation="vertical"
     android:padding="5dp">
     <LinearLayout
-        android:id="@+id/description"
+        android:id="@+id/description_box"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:orientation="vertical"
@@ -26,19 +26,39 @@
             android:text="    This course will introduce students to the key concepts underlying wired and wireless networking with a focus on the discussion of the layered architecture of the network protocol. A variety of case studies will be drawn from the Internet, combined with several practical programming exercises. At the end of the semester, students are expected to understand, several concepts, including the Internet architecture, HTTP, DNS, P2P, Sockets, TCP/IP, BGP, Routing protocols, wireless and sensor networking, WiFi, cellular and satellite networks, security, etc., with the ability to analyze and design protocols and algorithms in networking systems."
             android:textSize="15sp"/>
     </LinearLayout>>
-
-    <TextView
+    <LinearLayout
+        android:id="@+id/grading_box"
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:text="Grading"
-        android:textColor="#B9000000"
-        android:textSize="25sp"/>
-    <me.hsy.mycanvas.ui.main.pie.PieChart
-        android:id="@+id/PieChart"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:layout_below="@id/grading_title"
-        tools:ignore="MissingConstraints" />
+        android:orientation="vertical"
+        android:layout_marginBottom="20dp">
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Grading"
+            android:textColor="#B9000000"
+            android:textSize="25sp"/>
+        <me.hsy.mycanvas.ui.main.pie.PieChart
+            android:id="@+id/PieChart"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_below="@id/grading_title"
+            tools:ignore="MissingConstraints" />
+    </LinearLayout>
+
+    <include
+        android:id="@+id/week_bar"
+        layout="@layout/week_bar"
+        android:layout_marginHorizontal="10dp"
+        android:layout_height="40dp"
+        android:layout_width="match_parent"/>
+    <Button
+        android:id="@+id/location"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="location"/>
+
+
 
 
 </LinearLayout>
