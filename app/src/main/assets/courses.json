@@ -4,6 +4,16 @@
       "intValue": 2,
       "theme": "#FF6200EE",
       "id": "EE357",
+      "lectureTime": [
+        {
+          "day": 1,
+          "no": 1
+        },
+        {
+          "day": 4,
+          "no": 3
+        }
+      ],
       "term": "2021-2022 Fall",
       "info": "Haimin Jin, 105 Dongshang",
       "credit": 4
@@ -14,6 +24,16 @@
       "id": "AI3601",
       "term": "2021-2022 Fall",
       "info": "Yue Gao, 311 Dongshang",
+      "lectureTime": [
+        {
+          "day": 3,
+          "no": 1
+        },
+        {
+          "day": 5,
+          "no": 1
+        }
+      ],
       "credit": 4
     },
     { "name": "Digital Image Process",
@@ -22,6 +42,16 @@
       "id": "EE356",
       "term": "2021-2022 Fall",
       "info": "Lishen Wang, 302 Dongshang",
+      "lectureTime": [
+        {
+          "day": 2,
+          "no": 2
+        },
+        {
+          "day": 3,
+          "no": 4
+        }
+      ],
       "credit": 3
     }
 
@@ -33,6 +63,16 @@
       "id": "EI332",
       "term": "2020-2021 Spring",
       "info": "Xiangzhong Fang, 105 Dongshang",
+      "lectureTime": [
+        {
+          "day": 2,
+          "no": 2
+        },
+        {
+          "day": 3,
+          "no": 4
+        }
+      ],
       "credit": 4
     },
     { "name": "Control Theory",
@@ -41,6 +81,16 @@
       "id": "AU2651",
       "term": "2020-2021 Spring",
       "info": "Jianping He, 311 Dongshang",
+      "lectureTime": [
+        {
+          "day": 2,
+          "no": 2
+        },
+        {
+          "day": 3,
+          "no": 4
+        }
+      ],
       "credit": 4
     },
     { "name": "Information Theory",
@@ -49,6 +99,16 @@
       "id": "CS258",
       "term": "2020-2021 Spring",
       "info": "Fan Chen, 302 Dongshang",
+      "lectureTime": [
+        {
+          "day": 2,
+          "no": 2
+        },
+        {
+          "day": 3,
+          "no": 4
+        }
+      ],
       "credit": 2
     }
   ]

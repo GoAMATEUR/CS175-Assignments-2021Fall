@@ -69,6 +69,7 @@ class CurriculumFragment : Fragment() {
             val info: String = currentCurriculum[i].info
             val credit: Int = currentCurriculum[i].credit
             val theme: String = currentCurriculum[i].theme
+            val courseIntValue = currentCurriculum[i].intValue
 
             val newItem = layoutInflater.inflate(R.layout.item_course, null)
             newItem.findViewById<TextView>(R.id.id).text = id
@@ -80,17 +81,17 @@ class CurriculumFragment : Fragment() {
             courseName.setTextColor(Color.parseColor(theme))
             newItem.findViewById<View>(R.id.theme_color).setBackgroundColor(Color.parseColor(theme))
 
-            val courseIntValue = when (name) {
-                "Computer Networks" -> {
-                    Course.NETWORK.intValue
-                }
-                "Artificial Intelligence" -> {
-                    Course.AI.intValue
-                }
-                else -> {
-                    Course.DIP.intValue
-                }
-            }
+//            val courseIntValue = when (name) {
+//                "Computer Networks" -> {
+//                    Course.NETWORK.intValue
+//                }
+//                "Artificial Intelligence" -> {
+//                    Course.AI.intValue
+//                }
+//                else -> {
+//                    Course.DIP.intValue
+//                }
+//            }
 
             newItem.setOnClickListener {
                 val intent = Intent(context, CoursePage::class.java)
