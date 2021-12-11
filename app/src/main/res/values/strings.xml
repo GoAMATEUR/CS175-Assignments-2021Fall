@@ -17,6 +17,6 @@
     <string name="event_notification">Notification</string>
     <string name="title_activity_course_page">CoursePage</string>
     <string name="tab_text_1">Assignments</string>
-    <string name="tab_text_2">examination</string>
+    <string name="tab_text_2">Syllabus</string>
     <string name="tab_text_3">Information</string>
 </resources>

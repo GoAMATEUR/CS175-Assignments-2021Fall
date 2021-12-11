@@ -1,5 +1,5 @@
-# CS175_Final_Project
-CS175 Final Project
+# CS175 Final Project: Not Finished yet
+CS175 Final Project: ~~Homework Submission Simulator~~
 
 Author: Siyuan HUANG (519030910095)
 
