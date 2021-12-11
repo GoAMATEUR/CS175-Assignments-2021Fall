@@ -16,7 +16,7 @@ private val TAB_TITLES = arrayOf(
  * A [FragmentPagerAdapter] that returns a fragment corresponding to
  * one of the sections/tabs/pages.
  */
-class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) :
+class SectionsPagerAdapter(private val context: Context, fm: FragmentManager, private val courseIntValue: Int) :
     FragmentPagerAdapter(fm) {
 
     override fun getItem(position: Int): Fragment {
@@ -25,7 +25,7 @@ class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) :
 
         return when (position) {
             0 -> {
-                AssignmentFragment.newInstance(position + 1)
+                AssignmentFragment.newInstance(position + 1, courseIntValue)
             }
             1 -> {
                 PlaceholderFragment.newInstance(position + 1)

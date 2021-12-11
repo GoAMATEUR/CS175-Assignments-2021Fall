@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import me.hsy.mycanvas.R
 import me.hsy.mycanvas.databinding.FragmentAssignmentBinding
+import me.hsy.mycanvas.ui.home.ui.HomeworkListAdapter
 
 /**
  * A placeholder fragment containing a simple view.
@@ -23,7 +24,15 @@ class AssignmentFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+
     private var recyclerView: RecyclerView? = null
+    private var homeworkAdapter: HomeworkListAdapter? = null
+
+    //database
+
+
+    // filter
+    private var courseIntValue: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,6 +48,8 @@ class AssignmentFragment : Fragment() {
 
         _binding = FragmentAssignmentBinding.inflate(inflater, container, false)
         val root = binding.root
+        courseIntValue = arguments?.getInt(ARG_COURSE_NUMBER) ?: 2
+
 
         recyclerView  = _binding?. listAssignment
 
@@ -46,12 +57,14 @@ class AssignmentFragment : Fragment() {
     }
 
     companion object {
+        private const val ARG_COURSE_NUMBER = "course_number"
         private const val ARG_SECTION_NUMBER = "section_number"
 
         @JvmStatic
-        fun newInstance(sectionNumber: Int): AssignmentFragment {
+        fun newInstance(sectionNumber: Int, courseIntValue: Int): AssignmentFragment {
             return AssignmentFragment().apply {
                 arguments = Bundle().apply {
+                    putInt(ARG_COURSE_NUMBER, courseIntValue)
                     putInt(ARG_SECTION_NUMBER, sectionNumber)
                 }
             }

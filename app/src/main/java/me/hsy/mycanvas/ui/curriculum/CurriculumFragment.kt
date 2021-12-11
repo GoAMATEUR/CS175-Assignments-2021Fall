@@ -18,6 +18,7 @@ import me.hsy.mycanvas.R
 import me.hsy.mycanvas.databinding.FragmentCurriculumBinding
 import me.hsy.mycanvas.ui.curriculum.beans.Curriculum
 import me.hsy.mycanvas.ui.curriculum.beans.CurriculumJson
+import me.hsy.mycanvas.ui.home.beans.Course
 import java.io.InputStream
 
 
@@ -78,9 +79,22 @@ class CurriculumFragment : Fragment() {
             courseName.text = name
             courseName.setTextColor(Color.parseColor(theme))
             newItem.findViewById<View>(R.id.theme_color).setBackgroundColor(Color.parseColor(theme))
+
+            val courseIntValue = when (name) {
+                "Computer Networks" -> {
+                    Course.NETWORK.intValue
+                }
+                "Artificial Intelligence" -> {
+                    Course.AI.intValue
+                }
+                else -> {
+                    Course.DIP.intValue
+                }
+            }
+
             newItem.setOnClickListener {
                 val intent = Intent(context, CoursePage::class.java)
-                intent.putExtra("course_name", name)
+                intent.putExtra("course_int", courseIntValue)
                 intent.putExtra("theme", theme)
                 Log.d("@=>", "$name, $theme")
 

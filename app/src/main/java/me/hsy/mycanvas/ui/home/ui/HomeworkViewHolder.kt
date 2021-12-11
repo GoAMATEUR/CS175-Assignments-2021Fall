@@ -33,6 +33,7 @@ class HomeworkViewHolder(itemView: View, private val operator: NoteOperator): Re
     private val themeBar: View = itemView.findViewById(R.id.theme_bar)
     private val ptsText: TextView = itemView.findViewById(R.id.text_pts)
     private val submitStatus: TextView = itemView.findViewById(R.id.submit_status)
+    private val systemTime = System.currentTimeMillis()
 
     fun bind(note: Note) {
         contentText.text = note.content // set content
@@ -52,15 +53,22 @@ class HomeworkViewHolder(itemView: View, private val operator: NoteOperator): Re
 
         if (note.state === State.DONE) {
             submitStatus.text = "SUBMITTED"
+            submitStatus.visibility = View.VISIBLE
             contentText.setTextColor(Color.GRAY)
             contentText.paintFlags = contentText.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
             Log.d("@=>", contentText.paintFlags.toString())
         }
         else {
-            submitStatus.text = "MISSING"
+            if (systemTime > note.date!!) {
+                submitStatus.text = "MISSING"
+                submitStatus.visibility = View.VISIBLE
+            } else {
+                submitStatus.visibility = View.INVISIBLE
+            }
+
             contentText.setTextColor(Color.BLACK)
             contentText.paintFlags = contentText.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
-            Log.d("@=>", contentText.paintFlags.toString())
+            // Log.d("@=>", contentText.paintFlags.toString())
         }
 
         when (note.course!!.intValue) {
@@ -69,21 +77,21 @@ class HomeworkViewHolder(itemView: View, private val operator: NoteOperator): Re
                 courseName.text = Course.NETWORK.courseName
                 ptsText.text = "100pts"
                 ptsText.visibility = VISIBLE
-                submitStatus.visibility= VISIBLE
+
             }
             Course.AI.intValue -> {
                 setThemeColor("#0DC341")
                 courseName.text = Course.AI.courseName
                 ptsText.text = "100pts"
                 ptsText.visibility = VISIBLE
-                submitStatus.visibility= VISIBLE
+
             }
             Course.DIP.intValue -> {
                 setThemeColor("#038995")
                 courseName.text = Course.DIP.courseName
                 ptsText.text = "100pts"
                 ptsText.visibility = VISIBLE
-                submitStatus.visibility= VISIBLE
+
             }
             else -> {
                 setThemeColor("#A30B0B")

@@ -13,25 +13,29 @@ import android.view.Menu
 import android.view.MenuItem
 import me.hsy.mycanvas.ui.main.SectionsPagerAdapter
 import me.hsy.mycanvas.databinding.ActivityCoursePageBinding
+import me.hsy.mycanvas.ui.home.beans.Course
 
 class CoursePage : AppCompatActivity() {
 
     private lateinit var binding: ActivityCoursePageBinding
     private var courseName: String? = null
+    private var courseIntValue: Int = 2
     private var themeColor: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val intent = intent
-        courseName = intent.getStringExtra("course_name")
+        courseIntValue = intent.getIntExtra("course_int", 2)
         themeColor = intent.getStringExtra("theme")
         Log.d("@=>", "${courseName}, $themeColor")
+
+        courseName = Course.from(courseIntValue).courseName
 
         binding = ActivityCoursePageBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.title.text = courseName
         binding.appBar.setBackgroundColor(Color.parseColor(themeColor))
-        val sectionsPagerAdapter = SectionsPagerAdapter(this, supportFragmentManager)
+        val sectionsPagerAdapter = SectionsPagerAdapter(this, supportFragmentManager, courseIntValue)
         val viewPager: ViewPager = binding.viewPager
         viewPager.adapter = sectionsPagerAdapter
         val tabs: TabLayout = binding.tabs
