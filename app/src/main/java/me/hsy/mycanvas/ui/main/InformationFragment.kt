@@ -61,9 +61,9 @@ class InformationFragment : Fragment() {
         // load json
         val inputStream: InputStream? = activity?.assets?.open("networks_info.json") ?: null
         val bodyString: String? = inputStream?.bufferedReader().use{it?.readText()}
-        if (inputStream != null) {
-            Log.d("@=>", "Json loaded")
-        }
+//        if (inputStream != null) {
+//            Log.d("@=>", "Json loaded")
+//        }
         val infoBean = gson.fromJson(bodyString, InfoBean::class.java)
 
         // draw pie chart

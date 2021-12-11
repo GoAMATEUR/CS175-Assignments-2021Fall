@@ -207,6 +207,7 @@ class HomeFragment : Fragment() {
 
     @SuppressLint("Range")
     private fun loadNotesFromDatabase(classId: Int?): List<Note>? {
+        val currentSysTime = System.currentTimeMillis()
         // load data from database
         if (database == null) {
             return Collections.emptyList()
@@ -238,10 +239,16 @@ class HomeFragment : Fragment() {
             while (cursor.moveToNext()) {
                 // load homework info
                 val id: Long = cursor.getLong(cursor.getColumnIndex(BaseColumns._ID))
-                val content: kotlin.String =
-                    cursor.getString(cursor.getColumnIndex(TodoContract.TodoNote.COLUMN_CONTENT))
                 val dateMs: Long = cursor.getLong(cursor.getColumnIndex(TodoContract.TodoNote.COLUMN_DATE))
                 val intState: Int = cursor.getInt(cursor.getColumnIndex(TodoContract.TodoNote.COLUMN_STATE))
+
+
+                if (intState == State.DONE.intValue && currentSysTime > dateMs) {
+                    continue
+                }
+                val content: kotlin.String =
+                    cursor.getString(cursor.getColumnIndex(TodoContract.TodoNote.COLUMN_CONTENT))
+
                 val intCourse: Int = cursor.getInt(cursor.getColumnIndex(TodoContract.TodoNote.COLUMN_COURSE))
                 val intClassification: Int = cursor.getInt(cursor.getColumnIndex(TodoContract.TodoNote.COLUMN_CLASSIFICATION))
 
