@@ -1,6 +1,7 @@
 package me.hsy.mycanvas.ui.timetable
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
@@ -15,6 +16,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.findViewTreeViewModelStoreOwner
 import com.google.gson.GsonBuilder
+import me.hsy.mycanvas.CoursePage
 import me.hsy.mycanvas.R
 import me.hsy.mycanvas.databinding.FragmentTimetableBinding
 import me.hsy.mycanvas.ui.curriculum.beans.Curriculum
@@ -70,8 +72,9 @@ class TimetableFragment : Fragment() {
             val name = currentCurriculum[i].name
             val info = currentCurriculum[i].info
             val credit: Int = currentCurriculum[i].credit
+            val theme = currentCurriculum[i].theme
             val color = Color.parseColor(currentCurriculum[i].theme)
-
+            val courseIntValue: Int = currentCurriculum[i].intValue
 
 
 
@@ -85,14 +88,25 @@ class TimetableFragment : Fragment() {
                 itemView.findViewById<TextView>(R.id.course_name).text = name
                 itemView.findViewById<TextView>(R.id.course_info).text = info
                 itemView.setBackgroundColor(color)
+                itemView.setOnClickListener {
+                    val intent = Intent(context, CoursePage::class.java)
+                    intent.putExtra("course_int", courseIntValue)
+                    intent.putExtra("theme", theme)
+                    Log.d("@=>", "$name, $theme")
+
+                    startActivity(intent)
+                }
+
                 val height = if (no != 3) {
                     120f
                 } else {
                     220f
                 }
+
                 val params = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, PieChart.dp2px(requireContext(), height))
-                params.setMargins(0,getMargin(no), 0, 0)
+                params.setMargins(0, getMargin(no), 0, 0)
                 itemView.layoutParams = params
+
                 val parent: ViewGroup? = itemView.parent as ViewGroup?
                 parent?.removeView(itemView)
                 addToTimetable(day, itemView)
@@ -118,12 +132,12 @@ class TimetableFragment : Fragment() {
 
     private fun getMargin(no: Int): Int {
         val dp = when(no) {
-            1->3f
-            2->126f
-            3->249f
-            4->349f
-            5->472f
-            else -> 605f
+            1->21f
+            2->144f
+            3->267f
+            4->367f
+            5->490f
+            else -> 623f
         }
         return PieChart.dp2px(requireContext(), dp)
     }

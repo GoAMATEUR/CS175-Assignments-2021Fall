@@ -53,13 +53,31 @@
         }
       ],
       "credit": 3
+    },
+    { "name": "Robotics",
+      "intValue": 0,
+      "theme": "#A30B0B",
+      "id": "AU416",
+      "term": "2021-2022 Fall",
+      "info": "Heshen Wang, 105 Dongshang",
+      "lectureTime": [
+        {
+          "day": 1,
+          "no": 5
+        },
+        {
+          "day": 4,
+          "no": 5
+        }
+      ],
+      "credit": 2
     }
 
   ],
   "PastCurriculum": [
     { "name": "Computer Architecture",
       "intValue": 0,
-      "theme": "#A30B0B",
+      "theme": "#A30B0A",
       "id": "EI332",
       "term": "2020-2021 Spring",
       "info": "Xiangzhong Fang, 105 Dongshang",
