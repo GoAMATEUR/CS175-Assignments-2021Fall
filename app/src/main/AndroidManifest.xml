@@ -3,6 +3,8 @@
     package="me.hsy.mycanvas">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -11,17 +13,30 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyCanvas">
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="kqlgn9nxziPMCjWD1aECTkd7UMkg159V"/>
+
+
+        <activity
+            android:name=".MapActivity"
+            android:exported="true">
+
+        </activity>
+
+
+
         <activity
             android:name=".ui.main.AssignmentActivity"
             android:exported="false" />
         <activity
             android:name=".ChartActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".CoursePage"
             android:exported="true"
             android:label="@string/title_activity_course_page"
-            android:theme="@style/Theme.MyCanvas.NoActionBar"></activity>
+            android:theme="@style/Theme.MyCanvas.NoActionBar" />
         <activity
             android:name=".NoteActivity"
             android:exported="false" />
@@ -35,6 +50,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
     </application>
 

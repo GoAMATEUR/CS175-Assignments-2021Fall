@@ -1,6 +1,4 @@
 # CS175 Final Project
-**Some final touches are still underway.**
-
 CS175 Final Project: Canvas Mobile App ~~Homework Submission Simulator~~
 
 #### Author:
@@ -20,7 +18,7 @@ For sure, U cannot actually submit homework in this app, as all the data are loa
 + Filter by course and type (personal notification or course assignments).
 + Curriculum Page listing all the courses of this semester and last enrollments.
 + Curriculum Timetable
-+ Curriculum Page with three tabs: Assignment list, syllabus and detailed information with visualization. **(Still working on it)**
++ Curriculum Page with three tabs: Assignment list, syllabus and detailed information with visualization and a Baidu map widget showing the lecture location.
 + All the data on the timeline are maintained in a dataset. Other data, such as Curriculum Timetable data, are loaded from self-defined json file.
 
 

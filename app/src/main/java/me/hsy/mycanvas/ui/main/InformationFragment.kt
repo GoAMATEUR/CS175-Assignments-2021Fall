@@ -13,6 +13,9 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.baidu.mapapi.SDKInitializer
+import com.baidu.mapapi.map.*
+import com.baidu.mapapi.model.LatLng
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import me.hsy.mycanvas.R
@@ -42,6 +45,8 @@ class InformationFragment : Fragment() {
     private var itemList: MutableList<PieBean>? = null
     private var weekBar: WeekBarBinding? = null
     private var locationBtn: Button? = null
+    private var mapView: MapView? = null
+    private var mBaiduMap: BaiduMap? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,7 +59,7 @@ class InformationFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
+        SDKInitializer.initialize(requireActivity().applicationContext)
         _binding = FragmentInformationBinding.inflate(inflater, container, false)
         val root = binding.root
 
@@ -65,7 +70,7 @@ class InformationFragment : Fragment() {
 //            Log.d("@=>", "Json loaded")
 //        }
         val infoBean = gson.fromJson(bodyString, InfoBean::class.java)
-
+        _binding?.descriptionText?.text = infoBean.description
         // draw pie chart
         pieChart = _binding?.PieChart
         val gradings: List<Grading> = infoBean.grading
@@ -88,7 +93,7 @@ class InformationFragment : Fragment() {
         locationBtn!!.setOnClickListener{
             val intent = Intent()
             intent.action = Intent.ACTION_VIEW
-            intent.data = Uri.parse("geo:27.00025,116.2365214?q=花果山")
+            intent.data = Uri.parse("geo:31.027947,121.444687?q=东上院")
 
             startActivity(intent)
         }
@@ -117,6 +122,21 @@ class InformationFragment : Fragment() {
             }
         }
 
+        mapView = _binding!!.mapView
+        mBaiduMap = mapView?.map
+
+        val point: LatLng = LatLng(31.027947,121.444687)
+        val bitmap = BitmapDescriptorFactory.fromResource(R.drawable.ic_mark)
+        val options: OverlayOptions = MarkerOptions()
+            .position(point)
+            .icon(bitmap)
+            .anchor(1f, 100f)
+        mBaiduMap!!.addOverlay(options)
+        var status = MapStatusUpdateFactory.newLatLng(point)
+        mBaiduMap!!.setMapStatus(status)
+        status = MapStatusUpdateFactory.zoomTo(18f)
+        mBaiduMap!!.setMapStatus(status)
+
         return root
     }
 
@@ -144,6 +164,18 @@ class InformationFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+        mapView?.onDestroy()
         // TODO: Map recycle
+    }
+
+    override fun onPause() {
+        super.onPause()
+        mapView?.onPause()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        mapView?.onResume()
+
     }
 }
