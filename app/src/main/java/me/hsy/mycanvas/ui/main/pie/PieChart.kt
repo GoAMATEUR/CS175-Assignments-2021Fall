@@ -18,6 +18,8 @@ class PieChart @JvmOverloads constructor(
     attrs: AttributeSet?,
     defStyleAttr: Int = 0
 ) : View(context, attrs, defStyleAttr) {
+
+    // default allocation of portion colors
     private var colorList: List<Int> =
         arrayListOf(
             Color.parseColor("#FFBB86FC"),
@@ -25,6 +27,7 @@ class PieChart @JvmOverloads constructor(
             Color.parseColor("#0DC341"),
             Color.parseColor("#FF3700B3")
         )
+
     private var pieRadius = 0
     private var percentageLength = 0
     private var percentageWidth = 0
@@ -52,10 +55,10 @@ class PieChart @JvmOverloads constructor(
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
         if (0 == mDataList!!.size) return
-        drawArcPath(canvas)
+        drawPieChart(canvas)
     }
 
-    private fun drawArcPath(canvas: Canvas) {
+    private fun drawPieChart(canvas: Canvas) {
         var startAngle = 0f // start Angle of each section
         for (i in mDataList!!.indices) {
             var radius = pieRadius.toFloat()
@@ -173,6 +176,7 @@ class PieChart @JvmOverloads constructor(
         mAnimator.duration = duration.toLong()
         mAnimator.interpolator = interpolator
         mAnimator.addUpdateListener { animation ->
+            // update the process of animation and update the chart
             percent = animation.animatedValue as Float
             invalidate()
         }
@@ -197,11 +201,12 @@ class PieChart @JvmOverloads constructor(
     }
 
     companion object {
+        // Convert dp to px
         fun dp2px(context: Context, dpValue: Float): Int {
             val scale = context.resources.displayMetrics.density
             return (dpValue * scale + 0.5f).toInt()
         }
-
+        // Concert sp to px
         private fun sp2px(context: Context, spValue: Float): Int {
             val fontScale = context.resources.displayMetrics.scaledDensity
             return (spValue * fontScale + 0.5f).toInt()

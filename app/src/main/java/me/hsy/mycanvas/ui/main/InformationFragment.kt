@@ -88,6 +88,7 @@ class InformationFragment : Fragment() {
 
 
 
+
         // TODO: map widget
         locationBtn = _binding!!.location
         locationBtn!!.setOnClickListener{
@@ -161,6 +162,8 @@ class InformationFragment : Fragment() {
         }
     }
 
+
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
@@ -176,6 +179,7 @@ class InformationFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         mapView?.onResume()
+
 
     }
 }

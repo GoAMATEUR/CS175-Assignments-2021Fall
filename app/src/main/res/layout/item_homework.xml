@@ -47,7 +47,8 @@
         android:layout_toEndOf="@id/checkbox"
         android:textColor="#1e1e1e"
         android:textSize="20.5sp"
-        tools:text="Homework Test" />
+        tools:text="Homework Test"
+        android:maxLines="1"/>
 
     <TextView
         android:id="@+id/text_date"
