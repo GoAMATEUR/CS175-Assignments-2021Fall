@@ -1,6 +1,7 @@
 package me.hsy.mycanvas.ui.main
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.ContentValues
 import android.content.Intent
 import android.database.Cursor
@@ -106,7 +107,7 @@ class AssignmentFragment : Fragment() {
                     lastAssignment = pos
                     startActivityForResult(
                         intent,
-                        AssignmentFragment.REQUEST_CODE_SUBMIT
+                        REQUEST_CODE_SUBMIT
                     )
                 }
 
@@ -190,6 +191,16 @@ class AssignmentFragment : Fragment() {
         )
         if (rows > 0) {
             homeworkAdapter?.refresh(loadNotesFromDatabase(courseIntValue))
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQUEST_CODE_SUBMIT && resultCode == Activity.RESULT_OK) {
+            // user submit assignment in assignment activity, update state in dataset
+            homeworkAdapter!!.refresh(loadNotesFromDatabase(courseIntValue))
+            noteList!![lastAssignment!!].state = State.DONE
+            updateNoteFromDataBase(noteList!![lastAssignment!!])
         }
     }
 
