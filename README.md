@@ -21,7 +21,26 @@ For sure, U cannot actually submit homework in this app, as all the data are loa
 + Curriculum Page with three tabs: Assignment list, syllabus and detailed information with visualization and a Baidu map widget showing the lecture location.
 + All the data on the timeline are maintained in a dataset. Other data, such as Curriculum Timetable data, are loaded from self-defined json file.
 
+#### Demo
 
+<p align="center">
+<img src="demo_gif/demo_add.gif" alt="img" style="zoom:33%;" />
 
+<p align="center">
+<img src="demo_gif/demo_curr.gif" alt="img" style="zoom:33%;" />
 
+<p align="center">
+<img src="demo_gif/demo_dash.gif" alt="img" style="zoom:33%;" />
+
+<p align="center">
+<img src="demo_gif/demo_filter.gif" alt="img" style="zoom:33%;" />
+
+<p align="center">
+<img src="demo_gif/demo_info.gif" alt="img" style="zoom:33%;" />
+
+<p align="center">
+<img src="demo_gif/demo_submit.gif" alt="img" style="zoom:33%;" />
+
+<p align="center">
+<img src="demo_gif/demo_timetable.gif" alt="img" style="zoom:33%;" />
 
