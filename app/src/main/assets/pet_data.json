@@ -1,0 +1,94 @@
+{
+  "pets": [
+    {
+      "id": 1,
+      "title": "Agumon",
+      "gender": "Female",
+      "breed": "Mongrel",
+      "age": "3",
+      "location": "Sai Kung Centre",
+      "description": "Do not be fooled by Agumon’s frowny expression; she is actually an extremely energetic furkid! Whenever you pass Agumon a toy, she will gently bite onto it and bring it to a place where she feels safe and unbothered. Once she starts playing, she will ignore everything around her and indulge in her own world. However, please bear in mind not to interrupt Agumon as she is playing, or she may show you a little temper! Agumon will also get super excited when it is almost time for food; she will jump relentlessly to show you her passion for food! Moreover, during transitioning seasons, Agumon will shed hair like crazy; therefore, the owner shall brush her hair from time to time."
+    },
+    {
+      "id": 2,
+      "title": "Earl",
+      "gender": "Female",
+      "breed": "Poodle",
+      "age": "4",
+      "location": "Kowloon Centre",
+      "description":"My name is Earl . I am a Grey Male Poodle and I was rescued from a prosecution case. I am currently living in Kowloon Centre, please come to see me and give me a home."
+    },
+    {
+      "id": 3,
+      "title": "Foxy",
+      "gender": "Female",
+      "breed": "Poodle",
+      "age": "3",
+      "location": "Hong Kong Centre",
+      "description":"Before staying at the centre, Foxy was living near a nature reserve, which explains why she is still a bit nervous. So, she is now practicing how to be a pet dog from her fellow doggie friends. When nobody’s around, Foxy will rest quietly in the bed, just like a kitten. On the other hand, Foxy will display her affectionate side when others approach! Not only will she poke her nose out the window, but she also loves to be patted on the head! As of right now, Foxy is still learning how to be on a leash under the training of our dog trainer; therefore, she will mostly use her “private car” when going out. We suggest an experienced family with no children for this furkid."
+    },
+    {
+      "id": 4,
+      "title": "Thor",
+      "gender": "Male",
+      "breed": "Mongrel",
+      "age": "2",
+      "location": "Sai Kung Centre",
+      "description": "Have you ever met a furkid that judges a dog by its appearance? Well, Thor is a great example! Every time when a dog passes by, either Thor will ignore it, or he will complain by constant barking. However, when he comes across a young adorable female pup, Thor will suddenly act shy and sit in place without saying a word; what a face-judger! Besides, Thor is a bright furkid who loves to eat! Whenever you have food in hand, Thor will ‘paw’ without needing you to say so!"
+    },
+    {
+      "id": 5,
+      "title": "Oreo",
+      "gender": "Male",
+      "breed": "Poodle",
+      "age": "6",
+      "location": "Hong Kong Centre",
+      "description": "My name is Oreo . I am a White Male Poodle and I was rescued from a prosecution case. I am currently living in Hong Kong Centre, please come to see me and give me a home."
+    },
+    {
+      "id": 6,
+      "title": "Oo Long",
+      "gender": "Male",
+      "breed": "Mongrel",
+      "age": "1",
+      "location": "Hong Kong Centre",
+      "description": "My name is Oo Long. I am a Tri Colour Male Mongrel and I was rescued by Inspectors. I am currently living in Hong Kong Centre, please come to see me and give me a home."
+    },
+    {
+      "id": 7,
+      "title": "Spencer",
+      "gender": "Male",
+      "breed": "Mongrel",
+      "age": "2",
+      "location": "HK Centre",
+      "description": "I’m sure you notice the big wound on Spencer’s back when you first meet him. According to the SPCA inspectors, when they first discovered Spencer, his wound was so big that it covered most of his back area. Luckily, after a thorough examination by our vet, it was safe to say that the wound was not infected, which made the recovery process much easier. Although Spencer is only a couple of months old, his response to everything is pretty slow. He is an ultimate gentleman based on his appearance and behaviour."
+    },
+    {
+      "id": 8,
+      "title": "Erik",
+      "gender": "Male",
+      "breed": "Mongrel",
+      "age": "2",
+      "location": "Kowloon Centre",
+      "description": "My name is Erik . I am a Cream Male Mongrel and I was rescued by Inspectors. I am currently living in Kowloon Centre, please come to see me and give me a home."
+    },
+    {
+      "id": 9,
+      "title": "Gigi",
+      "gender": "Female",
+      "breed": "Mongrel",
+      "age": "1",
+      "location": "Kowloon Centre",
+      "description": "Gigi is a tiny puppy who has just reached three months old! Since her tail is very short, it looks like her buttocks are moving whenever she wags her tail. One of Gigi’s favourite activities is to be with her human friends! She literally runs up to people like a horse every time she sees them, hoping they could give her hugs and pats."
+    },
+    {
+      "id": 10,
+      "title": "Dave",
+      "gender": "Male",
+      "breed": "Mongrel",
+      "age": "2",
+      "location": "Hong Kong Centre",
+      "description": "Not only does Dave has a shiny black coat, but he is also quite tall and buff-looking considering he is only a 6-month-old puppy; he is now at 19KG! When first arriving at a new environment, Dave will sometimes sit at the corner of the room and observe his surroundings quietly. Whereas the other times, he will walk in circles to let you know he is feeling anxious. "
+    }
+  ]
+}
